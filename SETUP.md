@@ -125,11 +125,8 @@ module.exports = {
 3. **Create database user** with read/write permissions
 4. **Whitelist your IP address** (or use 0.0.0.0/0 for development)
 5. **Get connection string** from "Connect" button
-6. **Update `.env` file** with your Atlas connection string:
-   ```env
-   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/cute-notes-app?retryWrites=true&w=majority
-   ```
-
+6. **Update `.env` file** with your Atlas connection string.
+  
 ### Step 5: Running the Application
 
 #### Start Backend Server
