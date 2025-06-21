@@ -151,13 +151,7 @@ npm install
 ```
 
 3. **Environment Setup**:
-Create a `.env` file in the backend directory:
-```env
-PORT=3001
-MONGODB_URI=mongodb://localhost:27017/cute-notes-app
-# OR for MongoDB Atlas:
-# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/cute-notes-app
-```
+Create a `.env` file in the backend directory.
 
 4. **Start the backend server**:
 ```bash
