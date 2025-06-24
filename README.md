@@ -140,8 +140,8 @@ A delightful full-stack notes application with a custom REST API built with Node
 
 1. **Clone the repository**:
 ```bash
-git clone <your-repo-url>
-cd cute-notes-app
+git clone https://github.com/vwwyq/Notes.git
+cd notes-app
 ```
 
 2. **Install backend dependencies**:
@@ -214,11 +214,6 @@ curl -X PUT http://localhost:3001/api/notes/NOTE_ID \
 curl -X DELETE http://localhost:3001/api/notes/NOTE_ID
 ```
 
-5. **Get statistics**:
-```bash
-curl -X GET http://localhost:3001/api/notes/stats
-```
-
 ### Using the Frontend:
 1. Open `http://localhost:3000` in your browser
 2. Use the intuitive interface to create, edit, and delete notes
@@ -239,6 +234,118 @@ The MongoDB collection uses the following schema:
   updatedAt: Date
 }
 ```
+##  Project Structure
+```
+notes-app/
+├── backend/
+│   ├── config/
+│   │   └── database.js
+│   ├── middleware/
+│   │   └── errorHandler.js
+│   ├── models/
+│   │   └── Note.js
+│   ├── routes/
+│   │   └── notes.js
+│   ├── tests/
+│   │   ├── api/
+│   │   │   └── notesApi.test.js
+│   │   ├── integration/
+│   │   │   └── dbOperations.test.js
+│   │   └── unit/
+│   │       └── noteModel.test.js
+│   ├── coverage/
+│   │   └── lcov-report/
+│   │       └── index.html
+│   ├── .env
+│   ├── package.json
+│   └── server.js
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── services/
+│   │   ├── App.js
+│   │   └── index.js
+│   └── package.json
+└── README.md
+```
+---
+
+## API Testing & Code Coverage
+
+**Unit**, **integration**, and **API tests** for the  Notes App backend using **Jest**, **Supertest**, and **mongodb-memory-server**.
+
+###  Tech Stack
+
+- **Backend**: Node.js, Express.js, MongoDB (Mongoose)
+- **Testing Frameworks**: Jest, Supertest, mongodb-memory-server
+
+---
+
+### Test Structure
+```
+backend/
+├── tests/
+│ ├── unit/
+│ │ └── noteModel.test.js # Unit tests for model logic
+│ ├── integration/
+│ │ └── dbOperations.test.js # Tests for DB interaction
+│ └── api/
+│ └── notesApi.test.js # Tests for API endpoints
+```
+---
+
+### Test Types
+
+| Test Type      | Description                                                                 |
+|----------------|-----------------------------------------------------------------------------|
+| Unit Tests     | Validations and logic of the Note model (e.g. required fields, defaults)  |
+| Integration    | Database operations tested using in-memory MongoDB                          |
+| API Tests      | CRUD + stats endpoints tested via HTTP calls (/api/notes)                 |
+
+---
+
+### How to Run the Tests
+
+1. Install dependencies (inside `/backend`):
+
+```bash
+npm install
+```
+Run all tests with coverage report:
+```bash
+npm test
+```
+coverage/lcov-report/index.html
+
+
+## Test Coverage Report
+```bash
+> notes-app-backend@1.0.0 test
+> jest --coverage
+
+ PASS  tests/unit/noteModel.test.js
+ PASS  tests/integration/dbOperations.test.js
+ PASS  tests/api/notesApi.test.js
+
+Test Suites: 3 passed, 3 total  
+Tests:       10 passed, 10 total  
+Snapshots:   0 total  
+Time:        1.942s  
+Ran all test suites.
+
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              | 85.71   | 75       | 83.33   | 85.71   |                   
+ models/Note.js        | 100     | 100      | 100     | 100     |                   
+ routes/notes.js       | 82.5    | 72.73    | 85.71   | 82.5    | 23-25, 57         
+ server.js             | 66.67   | 50       | 66.67   | 66.67   | 21-22             
+-----------------------|---------|----------|---------|---------|-------------------
+
+Done in 1.94s.
+```
+--
 
 ##  Features Highlight
 
