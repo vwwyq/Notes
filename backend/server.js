@@ -38,7 +38,7 @@ app.use(errorHandler);
 const startServer = async () => {
   await connectDB();
   app.listen(PORT, () => {
-    console.log(`🚀 Cute Notes API running at http://localhost:${PORT}`);
+    console.log(`Notes API running at http://localhost:${PORT}`);
   });
 };
 
